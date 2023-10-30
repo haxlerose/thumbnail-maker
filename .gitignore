@@ -38,3 +38,7 @@
 !/app/assets/builds/.keep
 
 /node_modules
+.idea/misc.xml
+.idea/modules.xml
+.idea/thumbnail-maker.iml
+.idea/vcs.xml
