@@ -1,0 +1,24 @@
+<div class="container mx-auto px-4 py-6">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Thumbnail Details</h1>
+    <%= link_to "Back to Thumbnails", thumbnails_path, class: "text-blue-600 hover:text-blue-800" %>
+  </div>
+
+  <div class="bg-white p-6 rounded shadow-md">
+    <h2 class="text-xl font-semibold mb-4"><%= @thumbnail.title %></h2>
+
+    <% if @thumbnail.thumbnail_image.attached? %>
+      <div class="mb-4">
+        <p class="text-sm font-medium text-gray-700">Thumbnail Image:</p>
+        <%= image_tag @thumbnail.thumbnail_image, class: "w-full rounded mt-2" %>
+      </div>
+    <% end %>
+
+    <% if @thumbnail.uploaded_image.attached? %>
+      <div class="mb-4">
+        <p class="text-sm font-medium text-gray-700">Uploaded Image:</p>
+        <%= image_tag @thumbnail.uploaded_image, class: "w-full rounded mt-2" %>
+      </div>
+    <% end %>
+  </div>
+</div>

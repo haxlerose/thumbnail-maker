@@ -1,0 +1,30 @@
+<div class="container mx-auto px-4 py-6">
+  <h1 class="text-2xl font-bold mb-6">New Thumbnail</h1>
+
+  <% if @thumbnail.errors.any? %>
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+      <strong>Errors:</strong>
+      <ul>
+        <% @thumbnail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with(model: @thumbnail, local: true, html: { class: "bg-white p-6 rounded shadow-md" }) do |form| %>
+    <div class="mb-4">
+      <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :title, class: "mt-1 p-2 w-full border rounded-md" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :uploaded_image, "Upload Image", class: "block text-sm font-medium text-gray-700" %>
+      <%= form.file_field :uploaded_image, class: "mt-1 p-2 w-full border rounded-md" %>
+    </div>
+
+    <div class="flex justify-end">
+      <%= form.submit "Create Thumbnail", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  <% end %>
+</div>

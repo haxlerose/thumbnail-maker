@@ -1,0 +1,39 @@
+<div class="container mx-auto px-4 py-6">
+  <div class="flex justify-between items-center mb-4">
+    <h1 class="text-2xl font-bold">Your Thumbnails</h1>
+    <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "text-red-600 hover:text-red-800" %>
+  </div>
+
+  <%= link_to "New Thumbnail", new_thumbnail_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4" %>
+
+  <% if @thumbnails.empty? %>
+    <p class="text-gray-600">You haven't uploaded any thumbnails yet.</p>
+  <% else %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <% @thumbnails.each do |thumbnail| %>
+        <div class="border p-4 rounded shadow">
+          <h2 class="text-xl font-semibold mb-2"><%= thumbnail.title %></h2>
+          <% if thumbnail.uploaded_image.attached? %>
+            <div class="mb-2">
+              <p class="text-sm text-gray-600">Uploaded Image:</p>
+              <%= image_tag thumbnail.uploaded_image, class: "w-full h-48 object-cover rounded mt-1" %>
+            </div>
+          <% end %>
+          <% if thumbnail.thumbnail_image.attached? %>
+            <div class="mb-2">
+              <p class="text-sm text-gray-600">Thumbnail Image:</p>
+              <%= image_tag thumbnail.thumbnail_image, class: "w-full h-48 object-cover rounded mt-1" %>
+            </div>
+          <% end %>
+
+          <!-- Buttons for Show, Edit, and Delete -->
+          <div class="mt-4 flex space-x-2">
+            <%= link_to "Show", thumbnail_path(thumbnail), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+            <%= link_to "Edit", edit_thumbnail_path(thumbnail), class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded" %>
+            <%= link_to "Delete", thumbnail_path(thumbnail), data: {  turbo_method: :delete,  turbo_confirm: "Are you sure?"}, class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
