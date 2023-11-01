@@ -16,6 +16,7 @@ class ThumbnailsController < ApplicationController
     @thumbnail = current_user.thumbnails.build(thumbnail_params)
 
     if @thumbnail.save
+      @thumbnail.create_thumbnail_image
       redirect_to thumbnails_path, notice: 'Thumbnail was successfully created.'
     else
       render :new
@@ -31,6 +32,7 @@ class ThumbnailsController < ApplicationController
 
   def update
     if @thumbnail.update(thumbnail_params)
+      @thumbnail.create_thumbnail_image
       redirect_to @thumbnail, notice: 'Thumbnail was successfully updated.'
     else
       render :edit

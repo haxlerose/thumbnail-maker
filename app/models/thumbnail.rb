@@ -8,6 +8,10 @@ class Thumbnail < ApplicationRecord
   validates :title, presence: true
   validate :uploaded_image_attached
 
+  def create_thumbnail_image
+    ThumbnailCreator.new(self).process
+  end
+
   private
 
   def uploaded_image_attached
