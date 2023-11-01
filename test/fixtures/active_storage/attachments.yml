@@ -1,0 +1,11 @@
+sample_jpg_image_attachment:
+  name: "uploaded_image"
+  record_type: "Thumbnail"
+  record: jpg (Thumbnail)
+  blob: sample_jpg_image_blob
+
+sample_png_image_attachment:
+  name: "uploaded_image"
+  record_type: "Thumbnail"
+  record: png (Thumbnail)
+  blob: sample_png_image_blob

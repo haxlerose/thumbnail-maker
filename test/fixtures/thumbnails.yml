@@ -1,9 +1,9 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# test/fixtures/thumbnails.yml
 
-one:
-  title: MyString
-  user: one
+jpg:
+  title: "Sample JPG Thumbnail"
+  user: tony_stark
 
-two:
-  title: MyString
-  user: two
+png:
+  title: "Sample PNG Thumbnail"
+  user: tony_stark

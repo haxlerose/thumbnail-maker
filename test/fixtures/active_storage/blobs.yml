@@ -1,0 +1,2 @@
+sample_jpg_image_blob: <%= ActiveStorage::FixtureSet.blob filename: "sample.jpg" %>
+sample_png_image_blob: <%= ActiveStorage::FixtureSet.blob filename: "sample.png" %>
